@@ -1,0 +1,25 @@
+manager.cpp: In copy constructor ‘stack_reviews::stack_reviews(const stack_reviews&)’:
+manager.cpp:26:21: error: no matching function for call to ‘stack_reviews::deep_copy(experience* const&)’
+  deep_copy(copy.head);
+                     ^
+In file included from manager.cpp:12:0:
+manager.h:30:7: note: candidate: int stack_reviews::deep_copy(const stack_reviews&)
+   int deep_copy(const stack_reviews & from);
+       ^
+manager.h:30:7: note:   no known conversion for argument 1 from ‘experience* const’ to ‘const stack_reviews&’
+manager.cpp: In member function ‘int stack_reviews::deep_copy(const stack_reviews&)’:
+manager.cpp:103:30: error: invalid conversion from ‘experience*’ to ‘int’ [-fpermissive]
+   head = new experience(from.head);
+                              ^
+In file included from manager.h:14:0,
+                 from manager.cpp:12:
+experience.h:29:3: note:   initializing argument 1 of ‘experience::experience(int)’
+   experience(int size);
+   ^
+manager.cpp:105:57: error: no matching function for call to ‘stack_reviews::deep_copy(experience*&, experience*&)’
+    return deep_copy(from.head->go_next(),head->go_next());
+                                                         ^
+manager.cpp:92:5: note: candidate: int stack_reviews::deep_copy(const stack_reviews&)
+ int stack_reviews::deep_copy(const stack_reviews & from)
+     ^
+manager.cpp:92:5: note:   candidate expects 1 argument, 2 provided
